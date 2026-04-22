@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Most Useless Person Ever</title>
+
+  <style>
+    body {
+      background: black;
+      color: #00ffcc;
+      font-family: monospace;
+      text-align: center;
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px red; }
+      50% { text-shadow: -2px -2px blue; }
+      100% { text-shadow: 2px 2px red; }
+    }
+
+    button {
+      padding: 12px 20px;
+      margin: 10px;
+      border: 2px solid #00ffcc;
+      background: transparent;
+      color: #00ffcc;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00ffcc;
+      color: black;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 1.4em;
+    }
+
+    #barContainer {
+      width: 80%;
+      margin: 20px auto;
+      border: 1px solid #00ffcc;
+    }
+
+    #bar {
+      width: 0%;
+      height: 20px;
+      background: #00ffcc;
+    }
+
+    #runaway {
+      position: absolute;
+    }
+
+    .popup {
+      position: absolute;
+      background: #111;
+      border: 1px solid red;
+      padding: 10px;
+      color: red;
+      font-size: 14px;
+    }
+
+    /* Signature animation */
+    .signature {
+      margin-top: 50px;
+      font-size: 14px;
+      color: gray;
+      animation: fade 3s infinite;
+    }
+
+    @keyframes fade {
+      0% { opacity: 0.3; }
+      50% { opacity: 1; }
+      100% { opacity: 0.3; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🏆 MOST USELESS PERSON EVER</h1>
+  <p>Advanced AI detection system v0.0001</p>
+
+  <button onclick="scan()">Scan Now</button>
+  <button onclick="roast()">Generate Roast</button>
+  <button onclick="achievement()">Get Achievement</button>
+  <button id="runaway">Catch Me</button>
+
+  <div id="output"></div>
+
+  <div id="barContainer">
+    <div id="bar"></div>
+  </div>
+
+  <!-- Signature -->
+  <p class="signature">
+    Made by another Berozgar Person Swarup 😎
+  </p>
+
+  <script>
+    const output = document.getElementById("output");
+    const bar = document.getElementById("bar");
+
+    function scan() {
+      let progress = 0;
+      output.innerText = "Scanning intelligence...";
+
+      const interval = setInterval(() => {
+        progress += Math.random() * 25;
+        bar.style.width = progress + "%";
+
+        if (progress >= 100) {
+          clearInterval(interval);
+          output.innerText = "Result: YOU 😱 (relax, it's a joke... probably)";
+          spamPopups();
+        }
+      }, 300);
+    }
+
+    const roasts = [
+      "You have the reaction speed of Internet Explorer.",
+      "You're not useless, you could be used as a bad example.",
+      "If laziness were a sport, you'd come second… because you wouldn't try hard enough.",
+      "You bring WiFi signal down just by entering the room.",
+      "Even autocorrect gives up on you."
+    ];
+
+    function roast() {
+      const r = roasts[Math.floor(Math.random() * roasts.length)];
+      output.innerText = r;
+    }
+
+    const achievements = [
+      "Achievement Unlocked: Wasted 5 Seconds",
+      "Achievement Unlocked: Professional Button Clicker",
+      "Achievement Unlocked: Still Here?",
+      "Achievement Unlocked: Peak Uselessness",
+      "Achievement Unlocked: No Regrets (Probably)"
+    ];
+
+    function achievement() {
+      const a = achievements[Math.floor(Math.random() * achievements.length)];
+      output.innerText = a;
+    }
+
+    // Runaway button
+    const btn = document.getElementById("runaway");
+    btn.addEventListener("mouseover", () => {
+      btn.style.top = Math.random() * window.innerHeight + "px";
+      btn.style.left = Math.random() * window.innerWidth + "px";
+    });
+
+    // Fake virus popups
+    function spamPopups() {
+      for (let i = 0; i < 5; i++) {
+        const div = document.createElement("div");
+        div.className = "popup";
+        div.innerText = "⚠ ERROR: Brain not found";
+        div.style.top = Math.random() * window.innerHeight + "px";
+        div.style.left = Math.random() * window.innerWidth + "px";
+        document.body.appendChild(div);
+
+        setTimeout(() => div.remove(), 3000);
+      }
+    }
+  </script>
+
+</body>
+</html>
