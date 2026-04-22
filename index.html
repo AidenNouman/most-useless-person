@@ -38,6 +38,7 @@
       color: #00ffcc;
       font-size: 16px;
       border-radius: 8px;
+      transition: 0.2s;
     }
 
     button:active {
@@ -93,7 +94,6 @@
       color: gray;
     }
 
-    /* Shake effect */
     @keyframes shake {
       0% { transform: translate(2px, 2px); }
       25% { transform: translate(-2px, -2px); }
@@ -104,6 +104,11 @@
 
     .shake {
       animation: shake 0.3s;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5em; }
+      button { font-size: 15px; padding: 10px; }
     }
   </style>
 </head>
@@ -134,6 +139,7 @@
 const output = document.getElementById("output");
 const bar = document.getElementById("bar");
 
+// Scan
 function scan() {
   let progress = 0;
   output.innerText = "স্ক্যান চলছে... 🧠";
@@ -154,7 +160,7 @@ function scan() {
   }, 300);
 }
 
-// Roast lines
+// Roast
 const roasts = [
   "তোর স্পিড Internet Explorer থেকেও কম 😆",
   "তুই useless না, bad example হিসেবে ভালো 😜",
@@ -197,10 +203,11 @@ function speak(text) {
 // Background flash
 function flashBg() {
   const colors = ["#111", "#220000", "#002222", "#222200"];
-  document.body.style.background = colors[Math.floor(Math.random() * colors.length)];
+  document.body.style.background =
+    colors[Math.floor(Math.random() * colors.length)];
 }
 
-// Runaway button (mobile tap)
+// Runaway button
 const btn = document.getElementById("runaway");
 btn.addEventListener("click", () => {
   btn.style.position = "absolute";
@@ -248,4 +255,5 @@ document.body.addEventListener("click", () => {
 </script>
 
 </body>
-</html> 
+</html>
+
